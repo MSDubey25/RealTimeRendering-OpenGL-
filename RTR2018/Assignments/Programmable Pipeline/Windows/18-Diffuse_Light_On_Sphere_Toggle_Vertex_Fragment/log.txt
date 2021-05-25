@@ -1,0 +1,520 @@
+
+Log file is created
+
+Value of ivertex shader compile Status is : 0
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+Initialization Succeeded
+
+L key is pressed
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+V key is pressed
+
+vertexShaderSourceCodePerVertex attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerVertex attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+ESC key is pressed
+
+L key is pressed
+
+L key is pressed
+
+F key is pressed
+
+vertexShaderSourceCodePerFragment attached to the shader source
+
+Value of ivertex shader compile Status is : 1
+
+fragmentShaderSourceCodePerFragment attached to the shader source
+Value of ifragment shader compile Status is : 1
+
+attach comp
+Value of iProgramLinkStatus is : 1
+
+Q key is pressed
+Log File is Closed
+========================================================================

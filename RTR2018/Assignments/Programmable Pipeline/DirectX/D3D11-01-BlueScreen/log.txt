@@ -1,0 +1,9 @@
+Log File is successfully opened
+Initialize() Succeeded. Exitting Now..
+Warp Type
+.The Supported Highest Feature Level Is11.0
+.ID3DDevice::CreateRenderTargetView() Succeeded. Exitting Now..
+in resizeresize() Succeeded. Exitting Now..
+initialize() succeeded
+uninitialize() Succeeded
+Log File closed successfully

@@ -1,0 +1,5 @@
+Log file is created
+Value of ivertex shader compile Status is : 0Value of ivertex shader compile Status is : 1Value of ifragment shader compile Status is : 1attach comp
+Value of iProgramLinkStatus is : 1Initialization Succeeded
+Log File is Closed
+========================================================================

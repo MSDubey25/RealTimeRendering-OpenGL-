@@ -1,0 +1,4 @@
+Log file is created
+Initialization Succeeded
+Log File is Closed
+========================================================================

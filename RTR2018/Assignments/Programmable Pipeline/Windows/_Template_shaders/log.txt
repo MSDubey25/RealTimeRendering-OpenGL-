@@ -1,0 +1,5 @@
+Log file is created
+attach comp
+Initialization Succeeded
+Log File is Closed
+========================================================================

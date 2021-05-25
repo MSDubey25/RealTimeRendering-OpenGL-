@@ -1,0 +1,20 @@
+Log File is successfully opened
+Initialize() Succeeded. Exitting Now..
+Warp Type
+.The Supported Highest Feature Level Is11.0
+.D3DCompile() Succeeded For Vertex Shader .
+ID3D11Device::CreateVertexShader() Succeeded For Vertex Shader .
+D3DCompile() Succeeded For Pixel Shader .
+ID3D11Device::CreateVertexShader() Succeeded For Vertex Shader .
+ID3D11Device::CreateBuffer() Succeeded For Vertex Buffer Position.
+ID3D11Device::CreateBuffer() Succeeded For Vertex Buffer Color.
+ID3D11Device::CreateInputLayout() Succeeded For Vertex Buffer .
+ID3D11Device::CreateBuffer() Succeeded For Constant Buffer .
+ID3D11Device::CreateRasterizerState() Succeeded For Culling .
+CreateWICTextureFromFile() Succeeded. Exitting Now..
+ID3D11Device::LoadD3DTexture() Succeeded For Culling .
+ID3D11Device::CreateSamplerState() Succeeded For Culling .
+ID3DDevice::CreateRenderTargetView() Succeeded. Exitting Now..
+ID3DDevice::CreateDepthStencilView() Succeeded. Exitting Now..
+resize() Succeeded. Exitting Now..
+initialize() succeededuninitialize() SucceededLog File closed successfully

@@ -1,0 +1,466 @@
+/**********************************************************************
+Program: Rotating 3D Multi-Colored Pyramid and Cube !!
+1. Z- Co-ordinate for the geometry.
+2. Need to Enable Depth.
+**********************************************************************/
+//Global variables
+var canvas=null;
+var gl=null;
+var bFullscreen=false;
+var canvas_original_width;
+var canvas_original_height;
+var nParticles = 0;
+//Shader Variables
+var vertexShaderObject;
+var fragmentShaderObject;
+var shaderProgramObject;
+
+//Variables representing "shader variables" in our program
+const WebGLMacros=
+{
+	VDG_ATTRIBUTE_VERTEX:0, 
+	VDG_ATTRIBUTE_COLOR:1,
+	VDG_ATTRIBUTE_NORMAL:2,
+	VDG_ATTRIBUTE_TEXTURE0:3,
+};
+
+//Define Vao, Vbo and Uniform Variables
+var vao;
+var vbo_position;
+var vbo_color;
+
+var mvpUniform;
+var timeUniform;
+var resolutionUniform;
+var mouseUniform;
+var samplerUniform;
+var uvAlphaTimeUniform;
+
+var groundTexture;
+
+var lengthOfArray = 0;
+//Perspective Projection matrix
+var perspectiveProjectionMatrix;
+
+//To Start animation:
+var requestAnimationFrame=
+		window.requestAnimationFrame ||
+		window.webkitRequestAnimationFrame ||
+		window.mozRequestAnimationFrame ||
+		window.oRequestAnimationFrame ||
+		window.msRequestAnimationFrame;
+
+//To Stop the animation
+var cancelAnimationFrame=
+		window.cancelAnimationFrame ||
+		window.webkitCancelRequestAnimationFrame ||
+		window.webkitCancelAnimationFrame ||
+		window.mozCancelRequestAnimationFrame ||
+		window.mozCancelAnimationFrame ||
+		window.oCancelRequestAnimationFrame ||
+		window.oCancelAnimationFrame ||
+		window.msCancelRequestAnimationFrame ||
+		window.msCancelAnimationFrame;
+
+//onload function
+function main()
+{
+	
+	// Get the Canvas from the ID 
+	canvas=document.getElementById("AMC");
+	if(!canvas)
+		console.log("\n Obtaining canvas failed!! \n");
+	else
+		console.log("\n Obtaining canvas succeeded!! \n");
+	
+	//Store the original height and width into global variables
+	canvas_original_width=canvas.width;
+	canvas_original_height=canvas.height;
+	
+	window.addEventListener("keydown",keyDown,false);
+	window.addEventListener("click",mouseDown,false);
+	window.addEventListener("resize",resize,false);
+	
+	//Initialize function 
+	init();
+	
+	//resize function call
+	resize();
+	
+	//draw function call
+	draw();
+	
+}//main()
+
+function toggleFullscreen()
+{
+	//code
+	var fullscreen_element=
+		document.fullscreenElement ||
+		document.webkitFullscreenElement ||
+		document.mozFullScreenElement ||
+		document.msFullscreenElement ||
+		null;
+	
+	//if not in fullscreen mode, switch to it!
+	if(fullscreen_element==null)
+	{
+		if(canvas.requestFullscreen)
+			canvas.requestFullscreen();
+		else if(canvas.mozRequestFullScreen)
+			canvas.mozRequestFullScreen();
+		else if(canvas.webkitRequestFullscreen)
+			canvas.webkitRequestFullscreen();
+		else if(canvas.msRequestFullscreen)
+			canvas.msRequestFullscreen();
+	
+		bFullscreen=true;
+		
+	}
+	else
+	{
+		if(document.exitFullscreen)
+			document.exitFullscreen();
+		else if(document.mozCancelFullScreen)
+			document.mozCancelFullScreen();
+		else if(document.webkitExitFullscreen)
+			document.webkitExitFullscreen();
+		else if(document.msExitFullscreen)
+			document.msExitFullscreen();
+		
+		bFullscreen=false;
+	}
+	
+}//toggleFullscreen()
+
+function keyDown(event)
+{
+	switch(event.keyCode)
+	{
+		case 70: //For 'f' or 'F'
+					 toggleFullscreen();
+					 break;
+		case 27: //escape
+					//uninitialize()
+					uninitialize();
+					//Close Application's tab
+					window.close();
+					break;
+	}//switch(event.keyCode)
+}//keyDown()
+
+function mouseDown()
+{
+	//code	
+}
+var time = -100.0;
+
+function draw()
+{
+
+	gl.clear(gl.COLOR_BUFFER_BIT || gl.DEPTH_BUFFER_BIT);	
+	gl.useProgram(shaderProgramObject);
+	
+		var modelViewMatrix=mat4.create();
+		var modelViewProjectionMatrix=mat4.create();
+		var translationMatrix=mat4.create();
+		var scaleMatrix=mat4.create();
+		var rotationMatrix=mat4.create();	
+		
+		mat4.identity(modelViewMatrix);
+		mat4.identity(modelViewProjectionMatrix);
+		mat4.identity(translationMatrix);
+		mat4.identity(rotationMatrix);
+		mat4.identity(scaleMatrix);		
+		
+		mat4.translate(translationMatrix, translationMatrix, [0.0, 0.0, -2.0]);
+		mat4.rotate(rotationMatrix, translationMatrix, 0, [0.0, 1.0, 0.0]);
+		mat4.multiply(modelViewMatrix, rotationMatrix, modelViewMatrix);
+		mat4.multiply(modelViewProjectionMatrix, perspectiveProjectionMatrix, modelViewMatrix);
+		gl.uniformMatrix4fv(mvpUniform, false, modelViewProjectionMatrix);	
+		if(time < 100)
+		{
+			time = time + 0.01;
+			
+		}else
+		{
+			time = -100.0;
+		}
+		
+		//it decides speed of fire
+		gl.uniform1f(timeUniform, time);
+		
+		//standard 800 * 600 worked first time
+		gl.uniform2fv(resolutionUniform, [600, 800]);
+		gl.uniform4fv(uvAlphaTimeUniform, [1.0, 1.0, 2.0, 0.5 ]);
+		
+		gl.activeTexture(gl.TEXTURE0);
+		gl.bindTexture(gl.TEXTURE_2D, groundTexture);
+		gl.uniform1i(samplerUniform, 0);
+		
+		//Bind to vao_triangle and display the triangle
+		gl.bindVertexArray(vao);
+			
+			gl.drawArrays(gl.TRIANGLES, 0, 6);			
+	
+		gl.bindVertexArray(null);
+
+	
+	gl.useProgram(null);
+	//call to update() function
+	update();
+	
+	//animation loop!
+	requestAnimationFrame(draw,canvas);
+}//draw()
+
+function update()
+{
+	
+	
+}//update()
+
+function degreeToRadians(angleInDegrees)
+{	
+	return(angleInDegrees * Math.PI/180.0);	
+}//degrees()
+
+function resize()
+{
+	if(bFullscreen==true)
+	{
+		canvas.width=window.innerWidth;
+		canvas.height=window.innerHeight;
+	}
+	else
+	{
+		canvas.width=canvas_original_width;
+		canvas.height=canvas_original_height;
+	}
+	//set the viewport
+	gl.viewport(0, 0, canvas.width, canvas.height);
+	
+	//Perspective projection==>(target matrix, fov angle, aspect ration, near, far)
+	mat4.perspective(perspectiveProjectionMatrix, 45.0, (parseFloat)(canvas.width)/(parseFloat)(canvas.height), 0.1, 100.0);
+}//resize()
+
+function init()
+{
+	gl=canvas.getContext("webgl2");
+	
+	if(gl==null)
+	{
+		console.log("\n Obtaining WebGL Rendenring Context Failed!! \n");
+		return; //Terminate the program, as there is no use of proceeding further as no rendering context has been created!!
+	}
+	
+	//After getting the context, define the viewport
+	gl.viewportWidth=canvas.width;
+	gl.viewportHeight=canvas.height;
+	
+	//Define the Vertex Shader
+	var vertexShaderSourceCode=
+		"#version 300 es"+
+		"\n"+
+		"in vec4 vPosition;"+
+		"uniform mat4 u_mvp_matrix;"+
+		"void main(void)"+
+		"{"+
+		"gl_PointSize = 1.0;"+
+				"gl_Position=u_mvp_matrix * vPosition;"+
+		"}";
+	
+	vertexShaderObject=gl.createShader(gl.VERTEX_SHADER);
+	gl.shaderSource(vertexShaderObject,vertexShaderSourceCode);
+	gl.compileShader(vertexShaderObject);
+	
+	//Compilation Error Handling
+	if(gl.getShaderParameter(vertexShaderObject,gl.COMPILE_STATUS)==false)
+	{
+		var error=gl.getShaderInfoLog(vertexShaderObject);
+		if(error.length > 0)
+		{
+			alert(error);
+			uninitialize();
+		}
+		
+	}	//Vertex shader compilation error handling
+	
+	//Define Fragment Shader
+	var fragmentShaderSourceCode=
+		"#version 300 es"+
+		"\n"+
+		"precision highp float;"+
+		"out vec4 FragColor;"+
+		" uniform vec2 u_resolution;"+
+		" uniform float time;"+
+		"uniform sampler2D sampler;"+
+		"uniform vec4 uvAlphaTime;"+
+		"void main() {"+
+			"vec2 uv = gl_FragCoord.yx / u_resolution.yx;"+
+			"float utime = uvAlphaTime.w;"+
+			"vec2 n0Uv = vec2(uv.x*1.4 + 0.01, uv.y + time*0.69);"+
+			"vec2 n1Uv = vec2(uv.x*0.5 - 0.033, uv.y*2.0 + time*0.12);"+
+			"vec2 n2Uv = vec2(uv.x*0.94 + 0.02, uv.y*3.0 + time*0.61);"+
+			"float n0 = (texture(sampler, n0Uv).w-0.5)*2.0;"+
+			"float n1 = (texture(sampler, n1Uv).w-0.5)*2.0;"+
+			"float n2 = (texture(sampler, n2Uv).w-0.5)*2.0;"+
+			"float noiseA = clamp(n0 + n1 + n2, -1.0, 1.0);"+
+			"vec2 n0UvB = vec2(uv.x*0.7 - 0.01, uv.y + time*0.27);"+
+			"vec2 n1UvB = vec2(uv.x*0.45 + 0.033, uv.y*1.9 + time*0.61);"+
+			"vec2 n2UvB = vec2(uv.x*0.8 - 0.02, uv.y*2.5 + time*0.51);"+
+			"float n0B = (texture(sampler, n0UvB).w-0.5)*2.0;"+
+			"float n1B = (texture(sampler, n1UvB).w-0.5)*2.0;"+
+			"float n2B = (texture(sampler, n2UvB).w-0.5)*2.0;"+
+			"float noiseB = clamp(n0B + n1B + n2B, -1.0, 1.0);"+
+			"vec2 finalNoise = vec2(noiseA, noiseB);"+
+			"float perturb = (1.0 - uv.y) * 0.35 + 0.02;"+
+			"finalNoise = (finalNoise * perturb) + uv - 0.02;"+
+			"vec4 color = texture(sampler, finalNoise);"+
+			"color = vec4(color.x*2.0, color.y*0.9, (color.y/color.x)*0.2, 1.0);"+
+			"finalNoise = clamp(finalNoise, 0.05, 1.0);"+
+			"color.w = texture(sampler, finalNoise).z*2.0;"+
+			"color.w = color.w*texture(sampler, uv).z;"+
+			"FragColor = color;"+			
+		"}";
+	
+	fragmentShaderObject=gl.createShader(gl.FRAGMENT_SHADER);
+	gl.shaderSource(fragmentShaderObject,fragmentShaderSourceCode);
+	gl.compileShader(fragmentShaderObject);
+	//Error handling
+	if(gl.getShaderParameter(fragmentShaderObject,gl.COMPILE_STATUS)==false)
+	{
+		var error=gl.getShaderInfoLog(fragmentShaderObject);
+		if(error.length > 0)
+		{
+			alert(error);
+			uninitialize();
+		}
+		
+	}//Error handling for fragment Shader 
+	
+	//Define the Shader Program
+	shaderProgramObject=gl.createProgram();
+	gl.attachShader(shaderProgramObject, vertexShaderObject);
+	gl.attachShader(shaderProgramObject, fragmentShaderObject);
+	
+	//Before linking the program, initializing the shader variables
+	
+	gl.bindAttribLocation(shaderProgramObject,WebGLMacros.VDG_ATTRIBUTE_VERTEX, "vPosition");
+
+	//gl.bindAttribLocation(shaderProgramObject, WebGLMacros.VDG_ATTRIBUTE_COLOR, "vColor");
+	
+	//Linking 
+	gl.linkProgram(shaderProgramObject);
+	//Handling Link Errors
+	if(gl.getProgramParameter(shaderProgramObject,gl.LINK_STATUS)==false)
+	{
+		var error=gl.getProgramInfoLog(shaderProgramObject);
+		if(error.length > 0)
+		{
+			alert(error);
+			uninitialize();
+		}
+	}//Shader Program Link Error Handling
+	//Post link, tranferring the data to shader's in the form on "uniforms"
+	mvpUniform=gl.getUniformLocation(shaderProgramObject,"u_mvp_matrix");
+	timeUniform=gl.getUniformLocation(shaderProgramObject,"time");
+	resolutionUniform=gl.getUniformLocation(shaderProgramObject,"u_resolution");
+	uvAlphaTimeUniform=gl.getUniformLocation(shaderProgramObject,"uvAlphaTime");
+	samplerUniform=gl.getUniformLocation(shaderProgramObject,"sampler");
+	
+	var arrayOfVertices = [
+	-1.0, -1.0, 0.0,
+	1.0, -1.0, 0.0,
+	1.0, 1.0, 0.0,
+	1.0, 1.0, 0.0,
+	-1.0, 1.0, 0.0,
+	-1.0, -1.0, 0.0];	
+	
+					
+	//************** Define vao_triangle ******************************//
+	vao = gl.createVertexArray();
+	gl.bindVertexArray(vao);
+	    //vbo_position
+		vbo_position=gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, vbo_position);
+		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(arrayOfVertices), gl.STATIC_DRAW);	
+		
+		gl.vertexAttribPointer(WebGLMacros.VDG_ATTRIBUTE_VERTEX,
+												3, // Number of elements per attribute
+        gl.FLOAT, // Type of elements
+        gl.FALSE,
+        3 * Float32Array.BYTES_PER_ELEMENT, // Size of an individual vertex
+        0 // Offset from the beginning of a single vertex to this attribute											
+		);
+	
+		gl.enableVertexAttribArray(WebGLMacros.VDG_ATTRIBUTE_VERTEX);	
+		gl.bindBuffer(gl.ARRAY_BUFFER,null); 
+		
+		
+		//end of vbo_position;
+   	    gl.bindVertexArray(null);
+		
+		groundTexture = gl.createTexture();
+		//gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, 1);
+		
+		//gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, 1);
+		gl.bindTexture(gl.TEXTURE_2D, groundTexture);
+		
+		//using clamp to edge for TEXTURE_WRAP_T it te pakdun thevlya sarkha dista
+		
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT );
+		
+		//using nearest shows line patches
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR); 
+		gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
+		gl.texImage2D(
+			gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA,
+			gl.UNSIGNED_BYTE,
+			document.getElementById('ground')
+		);
+		gl.bindTexture(gl.TEXTURE_2D, null);
+	
+	gl.clearDepth(1.0); //Set up the "Depth Buffer"
+	
+	//depth test disable kelyavar ani blend vaprlyavar magcha white rectangle nighun gela ani black background ala
+	gl.disable(gl.DEPTH_TEST); //disable Depth Testing
+	gl.enable(gl.BLEND);
+    gl.blendFuncSeparate(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA, gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+	//gl.depthFunc(gl.LEQUAL); //Which depth test to do?
+
+	gl.lineWidth(50);
+	//Set the background color**
+	gl.clearColor(0.0, 0.0, 0.0, 1.0);
+	
+	//initialize perspective projection matrix
+	perspectiveProjectionMatrix=mat4.create();
+	
+}//init()
+
+function uninitialize()
+{
+	if(shaderProgramObject)
+	{
+		if(fragmentShaderObject)
+		{
+			gl.detachShader(shaderProgramObject,fragmentShaderObject);
+			gl.deleteShader(fragmentShaderObject);
+			fragmentShaderObject=null;
+		}
+		
+		if(vertexShaderObject)
+		{
+			gl.detachShader(shaderProgramObject, vertexShaderObject);
+			gl.deleteShader(vertexShaderObject);
+			vertexShaderObject=null;
+		}
+		gl.deleteProgram(shaderProgramObject);
+		shaderProgramObject=null;
+		
+	}//shaderProgramObject
+	
+}//uninitialize()
+
+
